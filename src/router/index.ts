@@ -1,18 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
-import SomePage from "../views/SomePage.vue";
+import Component from "../views/Component.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    component: Component
   },
   {
-    path: "/somepage",
-    name: "SomePage",
-    component: SomePage,
+    path: '/404',
+    component: {
+      template: `404`
+    },
   },
+  {
+    path: "/posts/:id",
+    component: {
+      template: `posts`
+    },
+  }
 ];
 
 const router = createRouter({
@@ -20,4 +25,4 @@ const router = createRouter({
   routes,
 });
 
-export default router;
+export { router, routes };
