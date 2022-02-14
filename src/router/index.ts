@@ -3,21 +3,21 @@ import Component from "../views/Component.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    component: Component
+    path: "/",
+    component: Component,
   },
   {
-    path: '/404',
+    path: "/404",
     component: {
-      template: `404`
+      template: `404`,
     },
   },
   {
     path: "/posts/:id",
     component: {
-      template: `posts`
+      template: `posts`,
     },
-  }
+  },
 ];
 
 const router = createRouter({

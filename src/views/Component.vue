@@ -5,28 +5,27 @@
 </template>
 
 <script lang="ts">
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter, useRoute } from "vue-router";
 
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  props: ['isAuthenticated'],
-  setup (props) {
-    const router = useRouter()
-    const route = useRoute()
-
+  props: ["isAuthenticated"],
+  setup(props) {
+    const router = useRouter();
+    const route = useRoute();
 
     const redirect = () => {
       if (props.isAuthenticated) {
-        router.push(`/posts/1`)
+        router.push(`/posts/1`);
       } else {
-        router.push('/404')
+        router.push("/404");
       }
-    }
+    };
 
     return {
-      redirect
-    }
-  }
+      redirect,
+    };
+  },
 });
 </script>
