@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Component from "../views/Component.vue";
+import Component from "@/views/Component.vue";
+import VeeValidateField from "@/views/VeeValidateField.vue";
+import VeeValidateForm from "@/views/VeeValidateForm.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,6 +19,14 @@ const routes: Array<RouteRecordRaw> = [
     component: {
       template: `posts`,
     },
+  },
+  {
+    path: "/vee-validate-field",
+    component: VeeValidateField,
+  },
+  {
+    path: "/vee-validate-form",
+    component: VeeValidateForm,
   },
 ];
 
