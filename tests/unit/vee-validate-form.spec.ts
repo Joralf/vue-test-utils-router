@@ -24,7 +24,7 @@ describe("test vee validate form", () => {
     expect(wrapper.find('[data-testid="error-message"]').exists()).toBe(false);
   });
 
-  it("shows an error after entering a value in the input field and erasing it afterwards", async () => {
+  it("shows an error after entering a value in the input field and erasing it afterwards -- this test fails", async () => {
     const wrapper = mount(VeeValidateForm, {});
 
     await setInputField(wrapper, "Hi Vee Validate peeps!");
@@ -32,5 +32,17 @@ describe("test vee validate form", () => {
     await flushPromises();
 
     expect(wrapper.find('[data-testid="error-message"]').exists()).toBe(true);
+  });
+
+  it("shows an error after entering a value in the input field and erasing it afterwards -- wrapping in a setTimeout let's the test succeed", async () => {
+    const wrapper = mount(VeeValidateForm, {});
+
+    await setInputField(wrapper, "Hi Vee Validate peeps!");
+    await setInputField(wrapper, "");
+    await flushPromises();
+
+    setTimeout(() => {
+      expect(wrapper.find('[data-testid="error-message"]').exists()).toBe(true);
+    }, 500);
   });
 });
